@@ -1,0 +1,26 @@
+File Handling Assignment
+try:
+    # Open the file "my_file.txt" in append mode and append additional lines
+    with open("my_file.txt", "a") as file:
+        file.write("Fourth line added in append mode\n")
+        file.write("Fifth line with more text\n")
+        file.write("Sixth and final line appended to the file\n")
+
+        print("Additional lines have been appended to 'my_file.txt'.")
+
+except FileNotFoundError:
+    print("File not found. Please check the file path.")
+
+except PermissionError:
+    print("Permission denied. Check file access permissions.")
+
+finally:
+    print("\nAttempting to read the updated contents of the file (if available):")
+    try:
+        # Read the updated contents of the file "my_file.txt" and display them
+        with open("my_file.txt", "r") as file:
+            for line in file:
+                print(line, end="")  # Print each line without adding extra newline
+
+    except FileNotFoundError:
+        print("File not found for reading.")
